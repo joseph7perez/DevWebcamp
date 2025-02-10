@@ -1,0 +1,99 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.agenda{
+    padding: 5rem 0;
+    @include m.contenedor;
+}
+
+.eventos{
+    $modificador: &;
+
+    &-heading{
+        color: v.$azul;
+        font-size: clamp(2.5rem, -0.8rem + 8vw, 6rem); //para que el tamaño varie depende del tamaño de la pantalla
+        margin: 5rem 0;
+        text-align: left;
+    }
+
+    &-fecha{
+        color: v.$gris;
+        margin: 3rem 0 1rem 0;
+    }
+
+    &-workshops{
+        #{$modificador}-heading{
+            color: v.$secundario;
+        }
+
+        .evento-informacion{
+            background-color: v.$secundario;
+            &:hover{
+                cursor: pointer;
+                background-color: darken($color: v.$secundario, $amount: 10);
+            }
+        }
+
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev{
+        color: rgba(v.$blanco, .5);
+    }
+}
+
+.evento{
+    &-hora{
+        font-weight: v.$bold;
+    }
+    &-informacion{
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: v.$azul;
+        color: v.$blanco;
+        transition: 300ms background-color ease-in-out;
+
+        &:hover{
+            cursor: pointer;
+            background-color: darken($color: v.$azul, $amount: 10);
+        }
+    }
+
+    &-nombre{
+        font-size: 2.5rem;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; //Lineas de parrafo a ver
+        -webkit-box-orient: vertical; //En vertical
+        overflow: hidden;
+    }
+    
+    &-info{
+        font-size: 1.6rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; //Lineas de parrafo a ver
+        -webkit-box-orient: vertical; //En vertical
+        overflow: hidden;
+
+        @include m.tablet{
+            -webkit-line-clamp: 2; //Lineas de parrafo a ver
+        }        
+    }
+
+    &-autor-info{
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-imagen-autor{
+        width: 6rem; //tamaño img
+      //  background-color: v.$blanco; // se usa si tiene transparencia
+      border-radius: 50%;
+    }   
+
+    &-autor-nombre{
+        font-weight: v.$bold;
+    }
+}

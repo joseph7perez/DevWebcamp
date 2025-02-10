@@ -1,0 +1,53 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.paquetes{
+    @include m.contenedor;
+    
+    &-grid{
+        @include m.grid(1, 3rem);
+        
+        @include m.tablet{
+            @include m.grid(3, 2rem);
+            align-items: flex-start;
+        }
+    }
+
+    &-submit {
+        @include m.boton(v.$azul, v.$blanco);
+        margin-top: 2rem;
+    }
+}
+
+.paquete{
+    @include m.card;
+    &:nth-child(2){
+        order: -1; //Colocarlo de primeras, al pase presencial
+
+        @include m.tablet{
+            order: unset; //Para reestablecer los valores
+        }
+    }
+
+    &-nombre{
+
+    }
+
+    &-lista{
+        @include m.reset-lista;
+        line-height: 1.5;
+
+
+    }
+
+    &-elemento{
+    }
+
+    &-precio{
+        font-size: 5rem;
+        margin: 3rem 0;
+        color: v.$azul;
+        font-weight: v.$bold;
+        text-align: center;
+    }
+}

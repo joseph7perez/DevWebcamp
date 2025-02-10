@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pagina_error{
+    &-contenedor{
+        text-align: center;
+    }
+
+    &-enlace{
+        color: v.$azul;
+    }
+}

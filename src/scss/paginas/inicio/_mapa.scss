@@ -1,0 +1,16 @@
+.mapa{
+    height: 40rem;
+   // width: 120rem;
+    margin-top: 5rem;
+
+    &-heading{
+        margin: 0;
+        font-size: 2.4rem;
+        text-align: left;
+    }
+
+    &-texto{
+        font-size: 1.5rem;
+
+    }
+}
